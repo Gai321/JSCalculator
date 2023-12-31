@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>JS Calcualtor</title>
+    <style>
+.calc
+{
+
+    border: 1px solid #cccccc;
+    box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+    border-radius: 30px;
+    position:absolute;
+   top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 450px;
+
+}
+
+.screen
+{
+    background-color:cornsilk;
+    border-radius: 30px;
+    justify-content: center;
+    color: black;
+    font-size: medium;
+    width: 165%;
+    height: 150%;
+    cursor:default;
+    padding: 25px; 
+    padding-left: 40%;
+   
+}
+.keys 
+{
+    
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    margin:auto;
+    
+
+}
+
+
+.button 
+{
+    height: 60px;
+    
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
+    background-color: transparent;
+    font-size: 2rem;
+    color: #333;
+    background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0,0,0,.04));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 0 rgba(255,255,255,.45), inset 0 -1px 0 0 rgba(255,255,255,.15), 0 1px 0 0 rgba(255,255,255,.15);
+    text-shadow: 0 1px rgba(255,255,255,.4);
+
+}
+
+.button:hover 
+{
+    background-color: #eaeaea;
+}
+
+.operator {
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #1e1d1d;
+    font-size: 2rem;
+    background-color:coral;
+
+}
+
+.clear {
+
+    height: 60px;
+    padding: 5px;
+    background-color: #676be8;
+    color: #191818;
+   
+}
+
+.clear:hover {
+    background-color: #f17377;
+}
+.equalsign {
+   grid-column-start: 4;
+   grid-column-end: -1;
+   grid-row-start: 2;
+   grid-row-end:-1;
+
+    background-color: #25a8e0;
+    border-color: #25a8e0;
+    color: #fff;
+}
+
+.equalsign:hover {
+    background-color: #4e9ed4;
+}
+
+</style>
+</head>
+<body>
+    <h1 style="text-align: center;"> Calculator App </h1>
+    <div class ="calc">
+        <table>
+            <tr>
+                <td colsplan="4"><input type="text" id='result' class='screen' style="text-align:right;"></td>
+            </tr>
+        </table>
+    
+<div class ="keys">
+    <input type = "button" value = "+" class = "operator" onclick="display('+')">
+    <input type = "button" value = "-" class = "operator" onclick="display('-')">
+    <input type = "button" value = "*" class = "operator" onclick="display('*')">
+    <input type = "button" value ="/" class = "operator" onclick = "display('/')">
+    <input type = "button" value = "9" class = "button" onclick = "display('9')">
+    <input type = "button" value = "8" class = "button" onclick = "display('8')">
+    <input type = "button" value = "7" class = "button" onclick = "display('7')">
+    
+    <input type = "button" value = "6" class = "button" onclick = "display('6')">
+    <input type = "button" value = "5" class = "button" onclick = "display('5')">
+    <input type = "button" value = "4" class = "button" onclick = "display('4')">
+    
+    <input type = "button" value = "3" class = "button" onclick = "display('3')">
+    <input type = "button" value = "2" class = "button" onclick = "display('2')">
+    <input type = "button" value = "1" class = "button" onclick = "display('1')">
+    
+    
+    <input type = "button" value = "=" class = "equalsign" onclick = "solve()">
+    <input type = "button" value = "AC" class = "clear" onclick = "clearScreen()">
+    <input type = "button" value = "0" class = "button" onclick = "display('0')">
+    <input type = "button" value = "." class = "button" onclick = "display('.')">
+</div>
+</div>
+<script>
+   
+function display(val){
+
+    document.getElementById('result').value += val
+
+    return val
+
+}
+
+function solve(){
+
+    let x = document.getElementById('result').value
+
+    let y = eval(x);
+
+    document.getElementById('result').value = y
+
+    return y
+
+}
+
+function clearScreen(){
+
+    document.getElementById('result').value = ''
+
+}
+</script>
+</body>
+</html>
